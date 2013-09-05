@@ -1,0 +1,93 @@
+﻿<div align="right">
+    <label><input id="chkDemoExpl" type="checkbox" align="right"/><span class="res">demo.explain.toggle</span></label>
+    <label><input id="chkShowLog" type="checkbox" align="right"/><span class="res">demo.showlog</span></label>
+    <label><span align="right" class="res">change.lang</span> 
+    <select name="lang">
+        <option value="">---</option>
+        <option value="en_US">English</option>
+        <option value="zh_CN">中文（简体）</option>
+    </select></label>
+ </div>
+<div><div id="demoExplain"></div></div>
+<fieldset>
+<legend><label class="res">form.title</label></legend>
+<form action="handler.php?src=test.php&amp;sleep=1000" name="userInfo" title="form.title" method="PUT">
+    <label>
+        <span class="res-replace">firstname</span>
+        <input name="fn" type="text" value="firstname" title="firstname"/>
+    </label><br />
+    <label>
+        <span class="res-replace">lastname</span>
+        <input name="lastname" type="text" value="lastname" title="lastname"/>
+    </label><br />
+    <label>
+        <span class="res-replace">passwd</span>
+        <input name="passwd" type="password" title="passwd.tip"/><span class="res">passwd.tip</span>
+    </label><br />
+    <label>
+        <span class="res-replace">passwd.retype</span>
+        <input name="passwd-re" type="password"/>
+    </label><br />
+    <label>
+        <span class="res-replace">gender</span>
+        <input checked="checked" name="gender" type="radio" value="Male" />
+        <span class="res">gender.male</span>
+    </label>
+    <label>
+        <input checked="checked" id="gender-female" name="gender" type="radio" value="Female" />
+        <span class="res">gender.female</span>
+    </label><br /><br/>
+    <label>
+        <span class="res-replace">birthdate</span>
+        <input name="birthdate" type="text" value="1982-06-24"/>(yyyy-MM-dd)
+    </label><br />
+    <label> 
+        <span class="res-replace">pref-lang</span>
+        <select name="preferred-lang" title="pref-lang">
+            <option value="">---</option>
+            <option value="English">English</option>
+            <option value="Chinese-simplified">中文（简体）</option>
+        </select>
+    </label><br /><br/>
+    <label>
+        <span class="res-replace">expertise-area</span><br />
+        <select multiple="true" name="expertise">
+            <option value="java">Java</option>
+            <option value="cpp">C++</option>
+            <option value="Javascript">Javascript</option>
+            <option value="design-pattern">Design Pattern</option>
+            <option value="oracedb">Oracle Database</option>
+            <option value="css">CSS</option>
+            <option value="html">html</option>
+        </select>
+    </label><br />
+    <label>
+        <span class="res-replace">email</span>
+        <input name="email" type="text" value="viscent.huang@gmail.com"/>
+    </label><br />
+    <label>
+        <span class="res-replace">mobilephone</span>
+        <input name="mobilephone" type="text" value="123456789012"/>
+    </label><br />
+    <label><span class="res-replace">notify-channel</span></label>
+    <label>
+        <input name="notification" type="checkbox" value="email" />
+        <span class="res-replace">notify-channel.email</span>
+    </label>    
+    <label>
+        <input id="notification-sms" name="notification" type="checkbox" value="SMS" />
+        <span class="res-replace">notify-channel.sms</span>
+    </label><br/><br/>
+    <label>
+        <span class="res-replace">intro</span><br/>
+        <textarea name="intro" cols="30" rows="10"></textarea>
+    </label><br />
+    <label> 
+        <span class="res-replace">mgmt-expierence</span>
+        <input type="text" name="mgmtExpr"></input><span class="res">hour</span>
+    </label> 
+    <p>
+    <input name="reset" type="reset" value="Reset" />
+    <input name="btnSubmit" type="submit" value="update"/>
+</form>
+</fieldset>

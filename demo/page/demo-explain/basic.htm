@@ -1,0 +1,124 @@
+﻿<div align="center"><label><input id="chkExpandAll" type="checkbox" align="right"/><a class="res">expand.all</a></label></div>
+<div>
+<span class="feature"><label class="res">expl.events</label></span>&nbsp;&nbsp;<a _p="events" class="expand res">expand</a><br/>
+<div id="events" class="featureDetails">
+    <a class="res">expl.events.details</a>
+    <code>
+    <pre>events:{
+  /*
+  <span class="comment res">expl.events.code.comment</span>
+  */
+  "click@#btnDemoExpl":function(){
+     //...
+  },
+  "change@[name=lang]":function(){
+     //...
+  }
+}</pre>
+    </code>
+</div>
+<br/>
+<span class="feature"><label class="res">expl.i18n</label></span>&nbsp;&nbsp;<a _p="i18n" class="expand res">expand</a><br/>
+<div id="i18n" class="featureDetails">
+    <a class="res">expl.i18n.details</a>
+    <ol>
+     <li><a class="res">expl.i18n.details.step1</a></li>
+        <code><pre>define({
+"expertise-area":"<a class="res">expertise-area</a>",
+"firstname":"<a class="res">firstname</a>",
+"lastname":"<a class="res">lastname</a>"
+});</pre></code> 
+    <li><a class="res">expl.i18n.details.step2</a></li>
+        <code><pre>&lt;label class="res"&gt;expertise-area&lt;/label&gt;</pre></code>
+    <li><a class="res">expl.i18n.details.step3</a></li>
+        <code><pre>resources:['res/demo-basic','res/demo-explain']</pre></code>
+    </ol>
+</div>
+<br/>
+<span class="feature"><label class="res">expl.css</label></span>&nbsp;&nbsp;<a _p="css" class="expand res">expand</a><br/>
+<div id="css" class="featureDetails">
+    <a class="res">expl.css.details</a>
+    <code>
+    <pre>css:["../../decj/demo/css/form.css","../../decj/demo/css/decj.css"]</pre>
+    </code>
+    <a class="res">expl.css.details.1</a>
+    <code>
+    <pre>#menu-Clue{
+    display:none;
+}</pre></code>
+</div>  
+<br/>   
+<span class="feature"><label class="res">expl.js</label></span>&nbsp;&nbsp;<a _p="js" class="expand res">expand</a><br/>
+<div id="js" class="featureDetails">
+    <a class="res">expl.js.details</a>
+    <code>
+    <pre>define(
+["decj","sha256"]//<span class="comment res">expl.js.comment</span>
+  ,function(decj){
+  //...
+  return{
+    //...  
+  };
+}
+);</pre>
+    </code>
+</div> 
+<br/>
+<span class="feature"><label class="res">expl.form</label></span>&nbsp;&nbsp;<a _p="form" class="expand res">expand</a><br/>
+<div id="form" class="featureDetails">
+    <a class="sub-feature res">expl.form.fill</a><br/>
+    <a class="res">expl.form.fill.details</a><br/><br/>
+    <a class="sub-feature res">expl.form.submit</a><br/>
+    <a class="res">expl.form.submit.details</a><br/><br/>
+    <a class="sub-feature res">expl.form.reset</a><br/>
+    <a class="res">expl.form.reset.details</a><br/><br/>
+    <a class="sub-feature res">expl.form.validate</a><br/>
+    <a class="res">expl.form.validate.details</a><br/><br/>
+    <a class="sub-feature res">expl.form.format</a><br/>
+    <a class="res">expl.form.format.details</a><br/><br/>
+    <a class="sub-feature res">expl.form.cfg</a><br/>
+    <a class="res">expl.form.details.extra</a><br/>
+    <code>
+    <pre>"decj.demo.memberInfo":{
+    "firstName": {
+      "stereoType": "String",//String the is default stereoType,so it can be omitted
+      "alias":"fn",
+      "typeParam":{"min":5,"max":15}
+    },
+    "lastName": {
+      "alias":"lastname",
+      "typeParam":{"min":5,"max":15}
+    },
+    "passwd": {
+      "typeParam":{"min":6,"max":10}
+    }
+    //...
+}</pre>
+    </code>
+    <a class="res">expl.form.details.extra.1</a><br/>
+    <code><pre>"memberInfo":{
+    filter:function(form,data){/*<span class="comment res">expl.form.code.comment.1</span>*/
+      //Your app code...
+    },
+    submitSuccess:function(data){/*<span class="comment res">expl.form.code.comment.2</span>*/
+      //Your app code...
+    },
+    validation:{/*<span class="comment res">expl.form.code.comment.3</span>*/
+      "passwd":{"valueConfirm":{}},
+      "passwd-re":{"valueConfirm":{}}
+    }
+}</pre></code>
+</div> 
+<br/>
+<span class="feature"><label class="res">expl.load</label></span>&nbsp;&nbsp;<a _p="load" class="expand res">expand</a><br/>
+<div id="load" class="featureDetails">
+<a class="res">expl.load.details</a>
+</div> 
+<br/>
+<span class="feature"><label class="res">expl.init</label></span>&nbsp;&nbsp;<a _p="init" class="expand res">expand</a><br/>
+<div id="init" class="featureDetails">
+<a class="res">expl.init.details</a><br/>
+<code><pre>init:function(data){//<span class="comment res">expl.init.code.comment</span>
+  //...
+}</pre></code>
+</div>

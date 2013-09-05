@@ -1,0 +1,14 @@
+.res{
+    font-size:12px;
+    background-color:white;
+}
+.validationTip{
+    color:red;
+    font-size:11px;
+}
+.valueChanged{
+  background-color:rgb(250, 245, 3);
+}
+#decj-Clue{
+  display:none;
+}

@@ -1,0 +1,47 @@
+﻿.featureDetails{
+  display:none;
+  color:black;
+}
+
+.feature{
+  font-size:12px;
+  color:blue;
+}
+
+.sub-feature{
+  font-size:12px;
+  color:#0769AD !important;
+}
+
+.expand{
+  color:red;
+  font-size:9px;
+  cursor:pointer;
+}
+
+pre{
+  font-size:14px;
+  color:black;
+  background-color:rgb(233,233,233);
+  margin:4px;
+  width:60%;
+}
+
+a.res{
+  color:black;
+  background-color:white;
+}
+
+.comment{
+  cursor:default !important;
+  font-size: 14px;
+  background-color:rgb(233,233,233) !important;
+}
+
+i{
+  font-size:13px;
+}
+
+#basic-explain-Clue{
+  display:none;
+}

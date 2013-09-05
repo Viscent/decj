@@ -1,0 +1,10 @@
+﻿{"boMetaData":{
+    "decj.demo.bo.Sample":{
+      "currency":{},
+      "amount":{
+        "stereoType": "Currency"
+      }
+  }
+},
+"bo":{"demo":{"type":"decj.demo.bo.Sample","alias":"demoForm"}}
+}

@@ -1,0 +1,72 @@
+form{
+    font-size:14px;
+    background-color:white;
+    line-height:12px;
+}
+
+label{
+   color:rgb(0, 133, 255); 
+   font-size:12px;
+}
+fieldset{
+    padding:2px;
+}
+legend{
+    color:red;
+    font-size:18px !important;
+    text-decoration:underline;
+    text-align:center;
+}
+
+input[type=text],input[type=password]{
+    border-width:0px;
+    border-bottom:1px solid green;
+}
+
+input[type=button],input[type=submit],input[type=reset],button{
+    cursor:pointer;
+}
+
+.res{
+  color:rgb(0, 133, 255);
+  line-height:12px;
+}
+
+input[type=checkbox]{
+    background-color:white;
+}
+
+#demoExplain{
+    font-size:15px;
+    color:blue;
+    display:none;
+    height:270px;
+    overflow:scroll;
+}
+
+a{
+  color:green;
+  cursor:pointer !important;
+}
+
+.submitting{
+    background-image: url(//static.viscenthuang.info/decj/demo/images/loading.gif);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size:20px 20px;
+    border-width:0px;
+    width:59px;
+    height:22px;
+}
+#btnUpdate1{
+    width:15px;
+    height:15px;
+}
+
+#progressTip{
+ display:none;
+}
+
+#form-Clue{
+  display:none;
+}
