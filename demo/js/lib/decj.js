@@ -109,20 +109,28 @@ function($, CSS) {
       }
       return (-1!=len);
     }
- 
+    //modified on 2013-09-08
+    var _Array$push=Array.prototype.push;
 		function Anonymous() {
 			return function() {
-				var allArgs = [],
+				//var allArgs = [],
+				var allArgs=arguments,
 				self = arguments.callee,
 				extraArg = self.extraArg,
         r;//return value
-
+        /*
         for ( var len = arguments.length, i = 0; i < len; i++) {
           allArgs.push(arguments[i]);
         }
         if(undefined!==extraArg){
           allArgs = allArgs.concat(extraArg);
-        }
+        }*/
+        
+        if(undefined!==extraArg){
+          extraArg=normalizeArray(extraArg);
+          _Array$push.apply(allArgs,extraArg);
+        };
+        //modification end 2013-09-08
 				r = self.delegate.apply(self.ctx, allArgs);
 				if (true != self.resident) {
 					self.ctx = self.extraArg = self.delegate = null;
@@ -140,7 +148,7 @@ function($, CSS) {
 			return func;
 		};
 
-    $( document ).ajaxComplete(function(event, xhr, settings) {
+    $(document).ajaxComplete(function(event, xhr, settings) {
         delete settings.success;
     });
     function forwardAjaxSuccessCallback(data,status,xhr,objCallback){
@@ -150,7 +158,28 @@ function($, CSS) {
         return forwardAjaxSuccessCallback.transform({fn:callback,ctx:ctx,args:args});
     }
     //add end
-
+    /*
+    Dereference any functions from a DOM element.
+    */
+    function purgeElement(d) {
+      //Function body comes from http://javascript.crockford.com/memory/leak.html
+      var a = d.attributes, i, l, n;
+      if (a) {
+          for (i = a.length - 1; i >= 0; i -= 1) {
+              n = a[i].name;
+              if (typeof d[n] === 'function') {
+                  d[n] = null;
+              }
+          }
+      }
+      a = d.childNodes;
+      if (a) {
+          l = a.length;
+          for (i = 0; i < l; i += 1) {
+              purgeElement(d.childNodes[i]);
+          }
+      }
+    }
 		//ease track the reference of HTML forms to locate potential memory leak
 		function HTMLFormRef(htmlForm) {
 			if ('string' == typeof htmlForm) {
@@ -197,7 +226,9 @@ function($, CSS) {
 		//end of utility function declaration
 
 		var _decjConfig = {
-			locale : "en_US",
+		  //modified on 2013-09-08
+			//locale : "en_US",
+			//modificaiton end
 			validationNotify/*extensible*/: function(objField, msg) {
 				var fieldName = objField.name,
 				eleParent = $(objField).parent(),
@@ -215,7 +246,7 @@ function($, CSS) {
 		REG_EXP_MSG_VAR_BRKT = /[\{|\}]/g;
 
 		var i18n = {
-			supportedLocales : [ 'en_US', 'zh_CN' ],
+			supportedLocales : [ 'en_US', 'zh_CN' ],/*The first locale is the default locale */
 			isLocaleSupported : function(locale) {
 				return ($.inArray(locale, i18n.supportedLocales) >= 0);
 			},
@@ -1915,8 +1946,11 @@ function($, CSS) {
     function activateModule(objModule, options) {
 			var argc = arguments.length;
 			if (2 == argc) {
-				var locale = _decj.App.locale || options.locale
-						|| (window.navigator.userLanguage || window.navigator.language);
+			  //modified on 2013-09-08
+				//var locale = _decj.App.locale || options.locale
+				//		|| (window.navigator.userLanguage || window.navigator.language);
+				var locale =options.locale || _decj.App.locale || (window.navigator.userLanguage || window.navigator.language);
+				//modificaiton end
 				_decj.setLocale(locale);//set and normalize the locale
 				objModule.track = Track.attach('objModule');
         objModule.resources=normalizeArray(objModule.resources);
@@ -2096,7 +2130,11 @@ function($, CSS) {
 						}
 					}
 				}
-				$('#' + viewTarget).html('');
+				var $target=$('#' + viewTarget);
+				//Allowing detaching event handlers attached  with other means than $.bind
+				purgeElement($target[0]);
+				//$('#' + viewTarget).html('');
+				$target.html('');
 			},
 			bindEvent : function(strSelector, strEvtName, funcHandler) {
 				$(strSelector).bind(strEvtName, funcHandler);
