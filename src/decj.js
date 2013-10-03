@@ -955,9 +955,9 @@ function($, CSS) {
 		Form._id = -1;
 		Form._instances = {};
 		Form.of = function(htmlForm) {
-			var htmlFormRef = HTMLFormRef.of(htmlForm);
-			var id = htmlFormRef.getId();
-			var instance = Form._instances[id];
+			var htmlFormRef = HTMLFormRef.of(htmlForm),
+			id = htmlFormRef.getId(),
+			instance = Form._instances[id];
 			if (undefined == instance) {
 				Form._instances[id] = instance = new Form(htmlFormRef);
 				instance._id = id;
@@ -1377,6 +1377,10 @@ function($, CSS) {
 					} else {
 						reqData = JSON.stringify(reqData);
 					}
+					
+					if(false==this._metaData.beforeSubmit(reqData)){
+					  return false;
+					}
 
 					loadModule(formCfg.processor, {
 						resident : formCfg.resident || true,
@@ -1412,13 +1416,15 @@ function($, CSS) {
 			},
 			dataAsJSON : function() {
 				var result = {},
+				finalResult={},
+				result,
 				field,
 				fn,//field name
 				fv,//field value
 				fldTypeName,
 				metaData = this._metaData,
 				fldMetaData;
-        
+
 				fldMetaData = new FieldMetaData(metaData.bo.fieldsMetaData);
 				for ( var form = this._htmlFormRef.get(), elements = form.elements, i = elements.length - 1; i >= 0; i--) {
 					field = elements[i];
@@ -1469,9 +1475,11 @@ function($, CSS) {
 						}
 					}
 				}
-
+        
 				this._invokeDataFilter(result);
-				return result;
+				//return result;
+				finalResult[metaData.bo.name]=result;
+				return finalResult;
 			},
 			/*
 			Collect form data as an array of name/value pair
@@ -1656,7 +1664,7 @@ function($, CSS) {
 				var viewTarget = options.viewTarget || 'wkspc';
 				options.viewTarget = viewTarget;
 				var prevLoadedModule = _loadedModules[viewTarget];
-				//if (prevLoadedModule) {
+
         if (prevLoadedModule && !options.viewRender) {
 					decj.unloadModule(viewTarget);
 				}
@@ -1899,7 +1907,7 @@ function($, CSS) {
 					objModule.metaData = data;
 				}
 			},
-			initModule : function(a1,a2,a3,objModule, options) {//initilize the loaded module
+			initModule : function(_,_,_,objModule, options) {//initilize the loaded module
         debug("init module");
 				var moduleId = objModule.id;
 				_loadedModules[options.viewTarget || moduleId] = objModule;
@@ -1925,7 +1933,8 @@ function($, CSS) {
 						//changed
 						},
 						validators : objModule.validators || {},
-						formDescriptor : (objModule.forms || {})[formName] || {}
+						formDescriptor : (objModule.forms || {})[formName] || {},
+						beforeSubmit: (objModule.beforeSubmit || dummy)
 					};
 					//Populate forms automatically
 					if (objModule.data) {
