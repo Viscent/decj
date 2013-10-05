@@ -69,7 +69,7 @@ require you write imperative code,you just declare what you need to do.
 [Features]:
 
 * Declarative Cross-browser Event Binding
-* Declarative Internationlization(I18N) Support:support mutli-language and on-demand dynamic resource file loading
+* Declarative Internationalization(I18N) Support:support mutli-language and on-demand dynamic resource file loading
 * Declarative CSS Files on-demand Dynamic Load
 * Declarative Javascript Files on-demand Dynamical Load
 * Declarative HTML Form Enhancement:Form Auto-fill with JSON,Form AJAX Auto-Submission(support JSON),Form Reset Enhancement,Form Validation and Form Formatting
