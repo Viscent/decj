@@ -1,7 +1,7 @@
 decj
 ====
 
-ease your daily web frontend dev with declarative Javascript programming
+--->ease your daily web frontend dev with declarative Javascript programming
 
 decj is a lightweight Javascript framework. By taking advantages of JSON and AMD,it enables solving common issues elegantly
 in the client-side web development in a declarative and modular way.Declarative programming means we can achieve the same 
@@ -76,5 +76,5 @@ require you write imperative code,you just declare what you need to do.
 * Concurrently Loading of HTML Code/CSS Files/Javascript Files/Resouce Files
 * Declarative Page/Module Intialization
 
-Live Demo:
+[Live Demo]:
 http://decj.viscenthuang.info/demo/page/basic.htm
