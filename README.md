@@ -79,3 +79,7 @@ require you write imperative code,you just declare what you need to do.
 [Live Demo]:
 
 http://decj.viscenthuang.info/demo/page/basic.htm
+
+[User Guide]:
+
+https://github.com/Viscent/decj/wiki/User-Guide
