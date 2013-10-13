@@ -77,4 +77,5 @@ require you write imperative code,you just declare what you need to do.
 * Declarative Page/Module Intialization
 
 [Live Demo]:
+
 http://decj.viscenthuang.info/demo/page/basic.htm
