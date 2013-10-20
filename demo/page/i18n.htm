@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>decj Demo</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<script>
+    function decjApp(){
+      return {
+        amd:{
+          baseUrl:'../js/lib',
+          paths: {
+            module: '//decj.viscenthuang.info/demo/js/module',
+            JSON:'//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min',
+            jquery:'//code.jquery.com/jquery-1.8.0.min',
+            cssloader:'//static.viscenthuang.info/decj/demo/js/lib/cssloader.min',
+            sha256:'//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256',
+            res:'//static1.viscenthuang.info/decj/demo/res/'
+          },
+          shim:{
+            decj:{
+               deps:['jquery','cssloader']
+            }
+          }
+        },
+        initialModule:'../js/module/i18n.js'
+      };
+    }
+		</script>
+		<script data-main="//static.viscenthuang.info/decj/demo/js/lib/decj.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.js"></script>
+	</head>
+<body>
+<form>
+<label>
+    <label class="res">firstname</label>
+    <input name="fn" type="text" value="firstname" title="firstname"/>
+  </label><br />
+  <label>
+    <label class="res">lastname</label>
+    <input name="lastname" type="text" value="lastname" title="lastname"/>
+  </label><br />
+
+  <label>
+    <label class="res">expertise-area</label><br />
+    <select multiple="true" name="expertise">
+      <option value="java">Java</option>
+      <option value="cpp">C++</option>
+      <option value="Javascript">Javascript</option>
+      <option value="design-pattern">Design Pattern</option>
+      <option value="oracedb">Oracle Database</option>
+      <option value="css">CSS</option>
+      <option value="html">html</option>
+    </select>
+  </label>
+</form>
+</body>
+</html>
