@@ -1640,16 +1640,7 @@ function($, CSS) {
       options = moduleId;
       moduleId = undefined;
     }
-    var isResident = options.resident || false;
-    if (!isResident) {
-      var viewTarget = options.viewTarget || 'wkspc';
-      options.viewTarget = viewTarget;
-      var prevLoadedModule = _loadedModules[viewTarget];
-
-      if (prevLoadedModule && !options.viewRender) {
-        decj.unloadModule(viewTarget);
-      }
-    }
+    
     if (moduleId) {
       options.moduleId = moduleId;
       require([ moduleId ], activateModule.transform(options));
@@ -1711,10 +1702,25 @@ function($, CSS) {
   PageStuffLoader.prototype = {
     defaultViewRender : function(code, target) {
       var $viewTarget = $('#' + target),
-      $parent = $viewTarget.parent();
-      $viewTarget.detach();
+      $parent=$viewTarget.parent(),
+      $preSibling=null,
+      $nextSibling=null;
+      $preSibling = $viewTarget.prev();
+      if (0==$preSibling.length){
+        $nextSibling=$viewTarget.next();
+      }
+      
+      $viewTarget.detach();//Detach the DOM element before setting its html to avoid re-paint
       $viewTarget.html(code);
-      $parent.append($viewTarget);
+
+      //Attach the node to its original position
+      if (1==$preSibling.length){
+        $viewTarget.insertAfter($preSibling);
+      } else if (null!=$nextSibling && 1==$nextSibling.length){
+        $viewTarget.insertBefore($nextSibling);
+      } else{
+        $parent.append($viewTarget);
+      }
     },
     loadScreen : function(screen) {//Load screen file
       debug("Loading screen:"+screen);
@@ -1854,7 +1860,12 @@ function($, CSS) {
           _track : Track.attach('ajax')
         });
       } else {
-        var data = objModule.data = options.data || {};
+        var data;//decj Module data. Priorities: objModule.data>options.data>{}
+        data=objModule.data;
+        if(undefined==data){
+          data=options.data;
+        }
+        data=data || {};
         task.resolveWith(self,[data,objModule,options]);
       }
       return task;
@@ -1945,6 +1956,17 @@ function($, CSS) {
       objModule.resources.push('decjres');
       var loader = new PageStuffLoader(options);
       objModule.id = (objModule.id || options.moduleId || objModule.js);
+      
+      if(objModule.screen){
+        var viewTarget = options.viewTarget || 'wkspc';
+        options.viewTarget = viewTarget;
+        var prevLoadedModule = _loadedModules[viewTarget];
+
+        if (prevLoadedModule && !options.viewRender) {
+          decj.unloadModule(viewTarget);
+        }
+      }
+
       var uiShowTsk=loader.showUI(objModule,options);//Load, paint and decorate UI
       $.when(
         uiShowTsk[1],//task for painting screen
@@ -2019,18 +2041,20 @@ function($, CSS) {
         registerCommonValidators(objConfig.validators || {});
         StereoType.register(objConfig.types || {});
         var app = _decjConfig;
-
-        (app.preInit || dummy).apply(app, [ $, _decj ]);
-        require(app.requires || [ 'jquery', 'decj' ], deferred.resolve.transform(app,deferred));
+        var appDeps;//Application dependencies
+        appDeps=['jquery','decj'].concat(normalizeArray(app.requires));
+        app._deps=appDeps;
+        require(appDeps, deferred.resolve.transform(app,deferred));
       }).done(function() {
         var args = arguments;
         $(function() {
           _garbageBin = document.createElement('DIV');
           _garbageBin.style.display = 'none';
+          $(_garbageBin).attr("title","_decjGarbageBin");//1024
           $(document.body).append(_garbageBin);
-
-          var app=args[args.length-1];
-          var initModuleDef=normalizeArray(app.initialModule);
+          var app=args[args.length-1],
+          initModuleDef=normalizeArray(app.initialModule);
+          (app.preInit || dummy).apply(app,args);
           if (initModuleDef) {
             _decj.loadModule.apply(_decj, initModuleDef);
           }
