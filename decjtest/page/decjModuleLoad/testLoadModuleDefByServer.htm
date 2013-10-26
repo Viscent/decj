@@ -1,0 +1,41 @@
+<html>
+	<head>
+		<title>decj Demo</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+		<script>
+    function decjApp(){
+      return {
+        amd:{
+          baseUrl:'../../js/lib',
+          paths: {
+            module: '//your.testhost.com/decjtest/js/module',
+            JSON:'//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min',
+            jquery:'//code.jquery.com/jquery-1.8.0.min',
+            cssloader:'//your.testhost.com/decjtest/js/lib/cssloader',
+            sha256:'//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256',
+            res:'//your.testhost.com/decjtest/res/'
+          },
+          shim:{
+            decj:{
+               deps:['jquery','cssloader']
+            }
+          }
+        },
+        cssBaseURL:'//your.testhost.com/decjtest/css/',
+        preInit:function(){
+         
+        },
+        initialModule:'module/decjModuleLoad/loadServerDefinedModule'
+      };
+    }
+    </script>
+		<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+	</head>
+<body>
+<div id="wkspc" align="left">&nbsp;</div>
+<hr>
+<div id="viewTarget1">&nbsp;</div>
+<input type="button"  id="loadModule" value="Load A Module Defined by Server Code"></input><br>
+<input type="button"  id="loadModuleWithoutUI" value="Load A Module Defined by Server Code without UI"></input><br>
+</body>
+</html>

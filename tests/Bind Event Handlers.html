@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://your.testhost.com/decjtest/page/eventBinding/test.htm" />
+<title>test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/decjtest/page/eventBinding/test.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=loadingState</td>
+	<td>done</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=btnTest1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=btnTest1</td>
+	<td>clicked</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>css=input.class1</td>
+	<td>test</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>css=input.class1</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=sltBox1</td>
+	<td>label=Item2</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=focusLost</td>
+	<td>Focus lost!</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=itemSelected</td>
+	<td>Item selected!</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=decj</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>//github.com/Viscent/decj</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=decj demo</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertAlert</td>
+	<td>http://decj.viscenthuang.info/demo/page/basic.htm</td>
+	<td></td>
+</tr>
+</tbody></table>
+</body>
+</html>

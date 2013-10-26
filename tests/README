@@ -1,0 +1,13 @@
+1) The test cases were recorded with the Selenium IDE(http://www.seleniumhq.org/projects/ide/).
+2) HTML files with names begin with "-" are test suites.
+
+To run the test cases:
+1. Setup a test web application for decj: 
+  Just deploy the decjtest directory into any web server, such as Tomcat.
+2. Copy required files:
+  Copy cssloader.js,decj.js,decjres-en_US.js,decjres-zh_CN.js under decj/src to decjtest/js/lib.
+3. Download the Selenium IDE or the Selenium Server(http://code.google.com/p/selenium/downloads/detail?name=selenium-server-standalone-2.37.0.jar&can=2&q=)
+4. Run the test suites:
+   1) If you want to run the test suites with the Selenium IDE. Just open the test suite and run it.
+   2) If you want to run the test suites with the Selenium Server. Use below command with arguments adjusted properly.
+    java -jar selenium-server-standalone-2.37.0.jar -htmlSuite "*firefox /path/to/your/firefox/exe" "http://your.testhost.com/" "/path/to/your/testsuite/-testsuitename.html" "test-results.html"

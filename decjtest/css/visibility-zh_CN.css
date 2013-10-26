@@ -1,0 +1,17 @@
+﻿
+.hidden{
+  display:none;
+}
+
+.visible,#visible{
+  display:inline !important;
+}
+
+.largeText{
+  width: 100px;
+  height:100px;
+}
+
+#visibility-Clue{
+  display:none;
+}

@@ -1,0 +1,9 @@
+﻿
+body{
+  background-color: white;
+  font-size: 14px;  
+}
+
+input[type="button"], input[type="submit"], input[type="reset"], input[type="file"]::-webkit-file-upload-button, button {
+  padding: 1px 6px;
+}

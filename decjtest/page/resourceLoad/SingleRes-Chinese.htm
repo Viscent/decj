@@ -1,0 +1,48 @@
+﻿<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>Resource Load</title>
+    <script>
+    function decjApp(){
+      return {
+        amd:{
+          baseUrl:'../../js/lib',
+          paths: {
+            module: '//your.testhost.com/decjtest/js/module',
+            JSON:'//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min',
+            jquery:'//code.jquery.com/jquery-1.8.0.min',
+            cssloader:'//your.testhost.com/decjtest/js/lib/cssloader',
+            sha256:'//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256',
+            res:'//your.testhost.com/decjtest/res/'
+          },
+          shim:{
+            decj:{
+               deps:['jquery','cssloader']
+            }
+          }
+        },
+        cssBaseURL:'//your.testhost.com/decjtest/css/',
+        preInit:function(){
+         
+        },
+        initialModule:['module/resourceLoad/singleRes',{locale:'zh_CN'}]
+      };
+    }
+    </script>
+		<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+  </head>
+  
+<body>
+  <span class="res" align="center">article</span><br>
+  <span class="otherClass1 res" align="center">article</span><br>
+  <span class="res otherClass1" align="center">article</span><br>
+  <span class="otherClass1 res otherClass2" align="center">article</span><br>
+  <label><a class="res-replace">article.tilte</a><input type="text" name="title"></label>&nbsp;<span id="publisher"></span><br>
+  <label><a class="otherClass1 res-replace otherClass2">article.author</a><input type="text" name="author"></label><br>
+  <label><a class="res-replace otherClass1">article.wordCount</a><input type="text" name="wordCount"></label><br>
+  <label><a class="otherClass1 res-replace">article.summary</a><input type="text" name="summary"></label><br>
+  <span class="res" align="center">no.such.res</span><br>
+  Loading State: <div id="loadingState"></div><br>
+  
+</body>
+</html>

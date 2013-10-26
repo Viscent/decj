@@ -1,0 +1,15 @@
+﻿
+.hidden,.invisible{
+  visibility: hidden;
+}
+
+#visible{
+ visibility: visible !important;
+}
+
+.emphasize{
+  font-style:italic;
+}
+#visibility1-Clue{
+  display:none;
+}
