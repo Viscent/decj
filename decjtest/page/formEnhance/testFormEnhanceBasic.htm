@@ -1,0 +1,55 @@
+<html>
+	<head>
+		<title>decj Demo</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<script>
+    function decjApp(){
+      return {
+        amd:{
+          baseUrl:'../../js/lib',
+          paths: {
+            module: '//your.testhost.com/decjtest/js/module',
+            JSON:'//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min',
+            jquery:'//code.jquery.com/jquery-1.8.0.min',
+            cssloader:'//your.testhost.com/decjtest/js/lib/cssloader',
+            sha256:'//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256',
+            res:'//your.testhost.com/decjtest/res/'
+          },
+          shim:{
+            decj:{
+               deps:['jquery','cssloader']
+            }
+          }
+        },
+        cssBaseURL:'//your.testhost.com/decjtest/css/',
+        requires:'jquery.mockjax',
+        preInit:function(){
+          //Stub ajax response that we need later
+          $.mockjax({
+            url: 'handler.php?src=metaData.json',
+            contentType: 'text/json',
+            proxy: '../formEnhance/metaData.json'
+          });
+          
+          $.mockjax({
+            url: 'handler.php?src=userInfoData.json',
+            contentType: 'text/json',
+            proxy: '../userInfoData.json'
+          });
+        },
+        initialModule:['module/formEnhance/basic',{
+          httpRequest:{
+            url:'handler.php?src=userInfoData.json'
+          }
+       }]
+      };
+    }
+    </script>
+		<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+	</head>
+<body>
+<div id="progressTip">Loading Demo...</div>
+<div align="left" id="log" style="display:none"></div><div><div id="wkspc" align="left" style="display:none"></div></div><br/>
+Loading state:<span id="moduleLoadState"></span>
+</body>
+</html>

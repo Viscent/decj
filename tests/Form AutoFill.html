@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://your.testhost.com/" />
+<title>Form Auto Fill</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Form Auto Fill</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/decjtest/page/formEnhance/testFormEnhanceBasic.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=moduleLoadState</td>
+	<td>done</td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>name=fn</td>
+	<td>decj</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=lastname</td>
+	<td>Framework</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>//input[@name='gender' and @value='Male']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=birthdate</td>
+	<td>1980-02-02</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=email</td>
+	<td>decj@viscenthuang.info</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=mobilephone</td>
+	<td>13612345678</td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>//input[@name='notification' and @value='email']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyChecked</td>
+	<td>//input[@name='notification' and @value='SMS']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>name=intro</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=mgmtExpr</td>
+	<td>1,032.56</td>
+</tr>
+<tr>
+	<td>verifySelectedIndexes</td>
+	<td>name=expertise</td>
+	<td>0,2,4,6</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=preferred-lang</td>
+	<td>English</td>
+</tr>
+</tbody></table>
+</body>
+</html>

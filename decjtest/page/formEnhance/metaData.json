@@ -1,0 +1,59 @@
+﻿{"boMetaData":{
+    "info.viscenthuang.demo.bo.UserInfo":{
+      "firstName": {
+        "alias":"fn",
+        "typeParam":{"min":4,"max":15}
+      },
+      "lastName": {
+        "alias":"lastname",
+        "typeParam":{"min":4,"max":15}
+      },
+      "passwd": {
+        "stereoType": "String",
+        "typeParam":{"min":6,"max":10}
+      },
+      "gender": {
+        "validation": {
+          "NotNull": {}
+        }
+      },
+      "birthdate":{
+        "stereoType": "Date",
+        "typeParam":{"format":"yyyy-MM-dd"},
+        "validation": {
+          "NotNull": {}
+        }
+      },
+      "prefLang":{
+        "alias":"preferred-lang",
+        "validation": {
+          "NotNull": {}
+        }
+      },
+      "expertise":{
+        "stereoType": "String[]",
+        "validation": {
+          "NotNull": {}
+        }
+      },
+      "email":{
+        "typeParam":{"min":15,"max":40}
+      },
+      "mobilephone":{
+        "typeParam":{"min":11,"max":11}
+      },
+      "notification":{
+        "stereoType": "String[]",
+        "typeParam":{"min":0,"max":10}
+      },
+      "intro":{
+        "typeParam":{"min":0,"max":450}
+      },
+      "mgmtExpr":{
+      	"stereoType": "Decimal",
+        "typeParam":{"locale":"cn","fraction":2}
+      }
+    }
+  },
+  "bo":{"userInfo":{"type":"info.viscenthuang.demo.bo.UserInfo"}}
+}
