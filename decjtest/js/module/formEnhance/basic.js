@@ -24,7 +24,8 @@
           data.passwd=pwdHash;
         },
         submitSuccess:function(data){/*This is a callback that will be invoked after a form is successfully submitted*/
-          alert("Server date:"+data.date+"\n"+"res form.submit.ok".val({memberId:data.id}));
+          //alert("Server date:"+data.date+"\n"+"res form.submit.ok".val({memberId:data.id}));
+          $('#submittedData').val(JSON.stringify(data));
         },
         validation:{/*Declare extra validation rules for a form field*/
           "passwd":{"valueConfirm":{}},

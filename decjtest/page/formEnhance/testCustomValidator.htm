@@ -1,0 +1,74 @@
+<html>
+	<head>
+		<title>Custom Validator---decj Demo</title>
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<script>
+    function decjApp(decj){
+      return {
+        amd:{
+          baseUrl:'../../js/lib',
+          paths: {
+            module: '//your.testhost.com/decjtest/js/module',
+            JSON:'//cdnjs.cloudflare.com/ajax/libs/json2/20121008/json2.min',
+            jquery:'//code.jquery.com/jquery-1.8.0.min',
+            cssloader:'//your.testhost.com/decjtest/js/lib/cssloader',
+            sha256:'//crypto-js.googlecode.com/svn/tags/3.1.2/build/rollups/sha256',
+            res:'//your.testhost.com/decjtest/res/'
+          },
+          shim:{
+            decj:{
+               deps:['jquery','cssloader']
+            }
+          }
+        },
+        locale:'en_US',
+        requires:'jquery.mockjax',
+        preInit:function(){
+           //Stub ajax response that we need later
+          $.mockjax({
+            url: 'handler.php?src=ChPwdMetaData.json',
+            contentType: 'text/json',
+            proxy: '../formEnhance/ChPwdMetaData.json'
+          });
+        },
+        validators:{ //Define an application-level validator
+          FieldMatches:function(value,param){
+            var field1=param.field1,
+            field2=param.field2,
+            result={};
+            if(value==$(field1).val() && $(field2).val()==value){
+              result.valid=true; 
+            }else{
+              result.valid=false; 
+              result.message='res FieldMatches'.val({
+                field1:$(field1).attr('title') || $(field1).attr('name'),
+                field2:$(field2).attr('title') || $(field2).attr('name')
+              });
+            }
+            return result;
+          } 
+        },
+        initialModule:'module/formEnhance/CustomValidator'
+      };
+    }
+    </script>
+		<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+	</head>
+	<body>
+    <fieldset>
+    <legend>Change Password</legend>
+		<form action="handler.php?src=test.php&amp;sleep=1000" name="memberInfo" title="Change Password">
+    <label>
+        Password:
+        <input id="passwd" name="passwd" type="password"></input>
+    </label><br>
+    <label>
+        Password(re-type):
+        <input id="passwdRetype" name="passwd-re" type="password"></input>
+    </label><br>
+    <input name="btnSubmit" type="submit" value="Change Password">
+    </form>	
+    </fieldset>
+  Loading state:<span id="moduleLoadState"></span><br/>
+	</body>
+</html>

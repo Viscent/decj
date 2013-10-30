@@ -21,6 +21,7 @@
             }
           }
         },
+        locale:'en_US',
         cssBaseURL:'//your.testhost.com/decjtest/css/',
         requires:'jquery.mockjax',
         preInit:function(){
@@ -36,6 +37,15 @@
             contentType: 'text/json',
             proxy: '../userInfoData.json'
           });
+          
+           $.mockjax({
+            url: 'handler.php*',
+            type:'PUT',
+            contentType: 'text/json',
+            response:function(settings){
+              this.responseText=JSON.stringify(settings.data);
+            }
+          });
         },
         initialModule:['module/formEnhance/basic',{
           httpRequest:{
@@ -45,11 +55,12 @@
       };
     }
     </script>
-		<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
+<script data-main="//your.testhost.com/decjtest/js/lib/decj" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.5/require.min.js"></script>
 	</head>
 <body>
-<div id="progressTip">Loading Demo...</div>
 <div align="left" id="log" style="display:none"></div><div><div id="wkspc" align="left" style="display:none"></div></div><br/>
-Loading state:<span id="moduleLoadState"></span>
+Loading state:<span id="moduleLoadState"></span><br/>
+Submitted Data:
+<textarea id="submittedData"></textarea>
 </body>
 </html>

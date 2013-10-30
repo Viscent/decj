@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://your.testhost.com/" />
+<title>Form Auto Validation and Formatting</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Form Auto Validation and Formatting</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/decjtest/page/formEnhance/testFormEnhanceBasic.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=moduleLoadState</td>
+	<td>done</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>**Test the Size rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=fn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=fn</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_fn</td>
+	<td>length must be between 4 and 15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=fn</td>
+	<td>decj</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=fn</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_fn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>**end:Test the Size rule</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>** Test module-level custom validator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwd</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=passwd</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_passwd</td>
+	<td>length must be between 6 and 10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwd</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=passwd</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_passwd</td>
+	<td>Passowrd and password-retype do not match</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwd-re</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=passwd</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_passwd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>**end: Test module-level custom validator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>** Test StereoType-based validation: Date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=birthdate</td>
+	<td>1980-02-029</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=birthdate</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_birthdate</td>
+	<td>not a valid Date</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=birthdate</td>
+	<td>1980-02-28</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=birthdate</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_birthdate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>**end: Test StereoType-based validation: Date</td>
+	<td></td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>** Test StereoType-based validation: Number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=mgmtExpr</td>
+	<td>1,032x.56</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=mgmtExpr</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_mgmtExpr</td>
+	<td>not a valid Decimal</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=mgmtExpr</td>
+	<td>123456.78</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=mgmtExpr</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name=mgmtExpr</td>
+	<td>123,456.78</td>
+</tr>
+<tr>
+	<td>echo</td>
+	<td>**end: Test StereoType-based validation: Number</td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=preferred-lang</td>
+	<td>label=---</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=preferred-lang</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_preferred-lang</td>
+	<td>cannot be empty</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>name=preferred-lang</td>
+	<td>label=中文（简体）</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=preferred-lang</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_preferred-lang</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=mobilephone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=mobilephone</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_mobilephone</td>
+	<td>length must be 11</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=mobilephone</td>
+	<td>13612345678</td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>name=mobilephone</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_mobilephone</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=fn</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=btnSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>id=__vn_fn</td>
+	<td>length must be between 4 and 15</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=fn</td>
+	<td>decj</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=btnSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=submittedData</td>
+	<td>&quot;{\&quot;userInfo\&quot;:{\&quot;mgmtExpr\&quot;:123456.78,\&quot;intro\&quot;:\&quot;decj is a lightweight javascript framework. By taking advantages of JSON and AMD,it enables solving common issues elegantly in the client-side web development in a declarative and modular way.Declarative programming means we can achieve the same thing or even more with less code compared with imperative programming.All features supported by the framework do NOT require you write imperative code,you just declare what you need to do.\&quot;,\&quot;notification\&quot;:[\&quot;SMS\&quot;,\&quot;email\&quot;],\&quot;mobilephone\&quot;:\&quot;13612345678\&quot;,\&quot;email\&quot;:\&quot;decj@viscenthuang.info\&quot;,\&quot;expertise\&quot;:[\&quot;html\&quot;,\&quot;oracedb\&quot;,\&quot;Javascript\&quot;,\&quot;java\&quot;],\&quot;prefLang\&quot;:\&quot;Chinese-simplified\&quot;,\&quot;birthdate\&quot;:320515200000,\&quot;gender\&quot;:\&quot;Male\&quot;,\&quot;passwd\&quot;:\&quot;0d6be69b264717f2dd33652e212b173104b4a647b7c11ae72e9885f11cd312fb\&quot;,\&quot;lastName\&quot;:\&quot;Framework\&quot;,\&quot;firstName\&quot;:\&quot;decj\&quot;}}&quot;</td>
+</tr>
+</tbody></table>
+</body>
+</html>

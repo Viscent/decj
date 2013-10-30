@@ -1,0 +1,10 @@
+﻿{"boMetaData":{
+    "decj.demo.MemberInfo":{
+      "passwd":{
+        "validation":{"FieldMatches":{"field1":"#passwd","field2":"#passwdRetype"}},
+        "typeParam":{"min":6,"max":10}
+      }
+  }
+},
+"bo":{"memberInfo":{"type":"decj.demo.MemberInfo"}}
+}

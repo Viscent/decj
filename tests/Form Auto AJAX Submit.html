@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://your.testhost.com/" />
+<title>For Auto AJAX Submit</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">For Auto AJAX Submit</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/decjtest/page/formEnhance/testFormEnhanceBasic.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>id=moduleLoadState</td>
+	<td>done</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwd</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name=passwd-re</td>
+	<td>passwd</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>name=btnSubmit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>500</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=submittedData</td>
+	<td>&quot;{\&quot;userInfo\&quot;:{\&quot;mgmtExpr\&quot;:1032.56,\&quot;intro\&quot;:\&quot;decj is a lightweight javascript framework. By taking advantages of JSON and AMD,it enables solving common issues elegantly in the client-side web development in a declarative and modular way.Declarative programming means we can achieve the same thing or even more with less code compared with imperative programming.All features supported by the framework do NOT require you write imperative code,you just declare what you need to do.\&quot;,\&quot;notification\&quot;:[\&quot;SMS\&quot;,\&quot;email\&quot;],\&quot;mobilephone\&quot;:\&quot;13612345678\&quot;,\&quot;email\&quot;:\&quot;decj@viscenthuang.info\&quot;,\&quot;expertise\&quot;:[\&quot;html\&quot;,\&quot;oracedb\&quot;,\&quot;Javascript\&quot;,\&quot;java\&quot;],\&quot;prefLang\&quot;:\&quot;English\&quot;,\&quot;birthdate\&quot;:318268800000,\&quot;gender\&quot;:\&quot;Male\&quot;,\&quot;passwd\&quot;:\&quot;0d6be69b264717f2dd33652e212b173104b4a647b7c11ae72e9885f11cd312fb\&quot;,\&quot;lastName\&quot;:\&quot;Framework\&quot;,\&quot;firstName\&quot;:\&quot;decj\&quot;}}&quot;</td>
+</tr>
+</tbody></table>
+</body>
+</html>

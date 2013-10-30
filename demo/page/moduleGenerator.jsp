@@ -29,10 +29,10 @@ if(null==lang){
     }
     lang=lang.replace("-","_");
 }
-response.setHeader("X-Locale",lang);
+//response.setHeader("X-Locale",lang);
 response.setHeader("X-JS","module/UpdateRegInfoStatic");
 response.setHeader("X-Screen","UpdateRegInfo.htm");
-response.setHeader("X-CSS","form.css#dummy;jsdp.css#jsdpDummy");
+response.setHeader("X-CSS","form.css;jsdp.css");
 response.setHeader("X-Resources","res/demo-basic;res/demo-explain");
 response.setHeader("X-MetaData-URL","handler.jsp?src=metaData.json");
 request.getRequestDispatcher(json).include(request,response);
