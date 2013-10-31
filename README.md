@@ -86,4 +86,4 @@ https://github.com/Viscent/decj/wiki/User-Guide
 
 [License]
 
-MIT License: https://github.com/Viscent/decj/blob/master/LICENSE
+decj is licensed under the MIT License: https://github.com/Viscent/decj/blob/master/LICENSE
