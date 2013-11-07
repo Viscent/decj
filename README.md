@@ -37,7 +37,7 @@ require you write imperative code,you just declare what you need to do.
    };
  });
  ```  
-  At first glance, this code seems to "larger" than code written in jQuery. However, in fact , other parts of the above code
+  At first glance, this code seems to be "larger" than code written in jQuery. However, in fact , other parts of the above code
   are for defining an AMD module, the only code you need write for event binding is just:
    ```javascript
    events:{
@@ -73,7 +73,7 @@ require you write imperative code,you just declare what you need to do.
 * Declarative CSS Files on-demand Dynamic Load
 * Declarative Javascript Files on-demand Dynamical Load
 * Declarative HTML Form Enhancement:Form Auto-fill with JSON,Form AJAX Auto-Submission(support JSON),Form Reset Enhancement,Form Validation and Form Formatting
-* Concurrently Loading of HTML Code/CSS Files/Javascript Files/Resouce Files
+* Concurrently Loading of HTML Code/CSS Files/Javascript Files/Resource Files
 * Declarative Page/Module Intialization
 
 [Live Demo]:
@@ -87,3 +87,7 @@ https://github.com/Viscent/decj/wiki/User-Guide
 [License]
 
 decj is licensed under the MIT License: https://github.com/Viscent/decj/blob/master/LICENSE
+
+[Discussion]
+
+http://groups.google.com/d/forum/decj-framework
